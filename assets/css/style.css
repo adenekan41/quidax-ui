@@ -4,9 +4,10 @@
 /* Basic styling */
 :root {
   --primary: #64c12e;
-  --accent: #302e24;
+  --accent: #212121;
   --warn: #dfa612;
   --gray: #888888;
+  --thm-white: #f1f1f1;
   --consumed-by-js: $primary;
 }
 
@@ -38,6 +39,16 @@ html {
   }
 }
 
+.container {
+  padding: 2rem 3.5rem;
+}
+
+.d-grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
 #header {
   display: flex;
   justify-content: space-between;
@@ -46,11 +57,11 @@ html {
   top: 0;
   z-index: 10;
   width: 100%;
-  height: 9vh;
+  height: 9rem;
   padding: 0 4rem;
   background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0.5rem 0rem 3rem #f1f1f1;
-  border-bottom: 1px solid #f1f1f1;
+  box-shadow: 0.5rem 0rem 3rem var(--thm-white);
+  border-bottom: 1px solid var(--thm-white);
 }
 @media (max-width: 1024px) {
   #header {
@@ -64,7 +75,7 @@ html {
   width: 2.3rem;
   height: 2px;
   position: relative;
-  color: #212121;
+  color: var(--accent);
   background-color: var(--primary);
 }
 #header .nav__hamburger::before, #header .nav__hamburger::after {
@@ -112,7 +123,7 @@ html {
   height: 5rem;
   border-radius: 50%;
   margin-inline-end: 1.2rem;
-  background-color: #212121;
+  background-color: var(--accent);
 }
 @media (max-width: 1024px) {
   #header .nav__logo-icon {
@@ -151,7 +162,7 @@ html {
 #header .nav__search button[type=submit] {
   width: 5rem;
   height: 3.5rem;
-  border: 2px solid #f1f1f1;
+  border: 2px solid var(--thm-white);
   background-color: #f9f9fb;
   cursor: pointer;
 }
@@ -171,7 +182,7 @@ html {
   opacity: 0;
   visibility: hidden;
   background-color: #ffffff;
-  border: 1px solid #f1f1f1;
+  border: 1px solid var(--thm-white);
   color: #888888;
   font-size: 1.4rem;
 }
@@ -182,17 +193,17 @@ html {
   transition: all 0.25s ease-in-out;
 }
 #header .nav__search-autocomplete-suggestion.match {
-  color: #212121;
+  color: var(--accent);
 }
 #header .nav__search-autocomplete-suggestion:hover {
-  background-color: #f1f1f1;
+  background-color: var(--thm-white);
 }
 #header .nav__search-autocomplete-suggestions {
   margin: 0.5rem 0;
 }
 #header .nav__search-input {
   width: 100%;
-  border: 2px solid #f1f1f1;
+  border: 2px solid var(--thm-white);
   border-right: none;
   border-radius: 0;
   color: #3f3f3f;
@@ -224,7 +235,7 @@ html {
   }
 }
 #header .nav__menu {
-  color: #212121;
+  color: var(--accent);
 }
 #header .nav__menu-items {
   display: flex;
@@ -242,8 +253,8 @@ html {
   cursor: pointer;
 }
 #header .nav__menu-item.avatar {
-  box-shadow: 1px 1px 2rem #f1f1f1;
-  border: 2px solid #f1f1f1;
+  box-shadow: 1px 1px 2rem var(--thm-white);
+  border: 2px solid var(--thm-white);
 }
 #header .nav__menu-item.avatar img {
   object-fit: cover;
@@ -279,6 +290,159 @@ html {
     width: 4.5rem;
     height: 4.5rem;
   }
+}
+
+section {
+  position: fixed;
+  top: 9rem;
+  overflow: scroll;
+  display: flex;
+  width: 100%;
+}
+section aside .side__bar {
+  width: 33rem;
+  max-width: 33rem;
+  font-size: 1.4rem;
+  overflow-y: scroll;
+  height: 91vh;
+  background-color: #fefefe;
+  border-right: 1px solid var(--thm-white);
+  box-shadow: 0rem 1rem 2.5rem var(--thm-white);
+  z-index: 10;
+}
+section aside .side__bar-items {
+  display: flex;
+  flex-direction: column;
+  color: var(--accent);
+  padding: 2rem 4rem;
+  width: 100%;
+}
+section aside .side__bar-items li {
+  display: flex;
+  margin-bottom: 1.1rem;
+  justify-content: space-between;
+  cursor: pointer;
+}
+section aside .side__bar-items li.active a {
+  font-weight: 900;
+  color: var(--primary) !important;
+}
+section aside .side__bar-items li span {
+  color: var(--gray);
+  font-size: 1.2rem;
+}
+section aside .side__bar-items li a {
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+section aside .side__bar-items .badge-green {
+  background: var(--primary);
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  margin-inline-end: -0.7rem;
+  width: 2.2rem;
+  height: 1.6rem;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  font-weight: 700;
+  color: #fff;
+}
+section aside .side__bar-divider {
+  margin-inline-end: -4rem;
+  margin-inline-start: -4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: auto;
+  display: block;
+  border-bottom: 1px solid var(--thm-white);
+}
+section aside .side__bar-title {
+  font-weight: 600;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+section main {
+  width: 100%;
+  height: 90vh;
+  background-color: #fefefe;
+  overflow-y: auto;
+}
+section main .main__title {
+  text-transform: uppercase;
+  width: 100%;
+  padding-bottom: 1.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.4rem;
+  color: #000000;
+}
+section main .recent__section .card {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+section main .recent__section .card * {
+  margin-bottom: 0.2rem;
+}
+section main .recent__section .card p[class*=card-] {
+  font-size: 1.2rem;
+}
+section main .recent__section .card-img {
+  margin-inline-end: 1rem;
+  height: 16rem;
+}
+section main .recent__section .card-img img {
+  height: 100%;
+  width: auto;
+}
+section main .recent__section .card-status {
+  color: var(--primary);
+  line-height: 2.4;
+}
+section main .recent__section .card-title {
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+section main .recent__section .card-more-det {
+  display: flex;
+  margin-top: 0.9rem;
+}
+section main .recent__section .card-more-det-rating-section {
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid var(--thm-white);
+}
+section main .recent__section .card-more-det-rating-section .card-rating-score {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+section main .recent__section .card-more-det-rating-section .card-rating-score svg {
+  display: inline-block;
+  position: relative;
+  fill: var(--gray);
+  width: 1.4rem;
+}
+section main .recent__section .card-more-det-shares-section {
+  display: flex;
+}
+section main .recent__section .card-more-det-shares-section .card-shares, section main .recent__section .card-more-det-shares-section .card-likes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+section main .recent__section .card-more-det-shares-section .card-shares svg, section main .recent__section .card-more-det-shares-section .card-likes svg {
+  width: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

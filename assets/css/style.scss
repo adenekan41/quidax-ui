@@ -5,16 +5,17 @@
 // root colors
 $primary-color: #fff;
 $primary: #64c12e;
-$accent: #302e24;
+$accent: #212121;
 $warn: #dfa612;
 $gray:#888888;
+$white:#f1f1f1;
 
 :root {
   --primary: #{$primary};
   --accent: #{$accent};
   --warn: #{$warn};
   --gray: #{$gray};
-
+  --thm-white: #{$white};
   // Even though this looks like a Sass variable, it's valid CSS so it's not
   // evaluated.
   --consumed-by-js: $primary;
@@ -49,6 +50,14 @@ html{
 .show-md{
 
 }
+.container{
+    padding: 2rem 3.5rem;
+}
+.d-grid{
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
 // Header Styling
 #header{
     display: flex;
@@ -58,11 +67,11 @@ html{
     top: 0;
     z-index: 10;
     width: 100%;
-    height: 9vh;
+    height: 9rem;
     padding: 0 4rem;
     background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0.5rem 0rem 3rem #f1f1f1;
-    border-bottom: 1px solid #f1f1f1;
+    box-shadow: 0.5rem 0rem 3rem var(--thm-white);
+    border-bottom: 1px solid var(--thm-white);
 
     @media (max-width: 1024px) {
         padding: 0 2rem;
@@ -74,7 +83,7 @@ html{
         width: 2.3rem;
         height: 2px;
         position: relative;
-        color: #212121;
+        color: var(--accent);
         background-color: var(--primary); 
         &::before, &::after{
             content: '';
@@ -120,7 +129,7 @@ html{
             height: 5rem;
             border-radius: 50%;
             margin-inline-end: 1.2rem;
-            background-color: #212121;
+            background-color: var(--accent);
             @media (max-width: 1024px) {
                 width: 4.5rem;
                 height: 4.5rem; 
@@ -153,7 +162,7 @@ html{
         button[type='submit']{
             width: 5rem;
             height: 3.5rem;
-            border: 2px solid #f1f1f1;
+            border: 2px solid var(--thm-white);
             background-color: #f9f9fb;
             cursor: pointer;
             svg{
@@ -173,7 +182,7 @@ html{
             opacity: 0;
             visibility: hidden;
             background-color: #ffffff;
-            border: 1px solid #f1f1f1;
+            border: 1px solid var(--thm-white);
             color: #888888;
             font-size: 1.4rem; 
             &-suggestion {
@@ -182,10 +191,10 @@ html{
                 text-transform: capitalize;
                 transition: all 0.25s ease-in-out; 
                 &.match {
-                    color: #212121; 
+                    color: var(--accent); 
                 }
                 &:hover{
-                    background-color: #f1f1f1;
+                    background-color: var(--thm-white);
                 }
             }
             &-suggestions {
@@ -194,7 +203,7 @@ html{
         }
         &-input {
             width: 100%;
-            border: 2px solid #f1f1f1;
+            border: 2px solid var(--thm-white);
             border-right: none;
             border-radius: 0;
             color: #3f3f3f;
@@ -228,7 +237,7 @@ html{
     }
 
     .nav__menu {
-        color: #212121; 
+        color: var(--accent); 
         &-items {
             display: flex;
             justify-content: space-between; 
@@ -244,8 +253,8 @@ html{
             overflow: hidden;
             cursor: pointer; 
             &.avatar {
-                box-shadow: 1px 1px 2rem #f1f1f1;
-                border: 2px solid #f1f1f1; 
+                box-shadow: 1px 1px 2rem var(--thm-white);
+                border: 2px solid var(--thm-white); 
                 img {
                     object-fit: cover;
                     width: 100%;
@@ -285,4 +294,173 @@ html{
         
     }
     
+}
+
+// section styling
+// Aside
+section{
+    position: fixed;
+    top: 9rem;
+    overflow: scroll;
+    display: flex;
+    width: 100%;
+    // Side bar Styling
+    aside{
+        .side__bar{
+            width: 33rem;
+            max-width: 33rem;
+            font-size: 1.4rem;
+            overflow-y: scroll;
+            height: 91vh;
+            background-color: #fefefe;
+            border-right: 1px solid var(--thm-white);
+            box-shadow: 0rem 1rem 2.5rem var(--thm-white);
+            z-index: 10;
+            &-items{
+                display: flex;
+                flex-direction: column;
+                color: var(--accent);
+                padding: 2rem 4rem;
+                width: 100%;
+                li{
+                    display: flex;
+                    margin-bottom: 1.1rem;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    &.active{
+                        a{
+                            font-weight: 900;
+                            color: var(--primary) !important;
+                        }
+                        
+                    }
+                    span{
+                        color: var(--gray);
+                        font-size: 1.2rem;
+                    }
+                    a{
+                        color: var(--accent);
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+                }
+                .badge-green{
+                    background: var(--primary);
+                    border-radius: 2rem;
+                    font-size: 1.2rem;
+                    margin-inline-end: -.7rem;
+                    width: 2.2rem;
+                    height: 1.6rem;
+                    display: flex;
+                    justify-content: center;
+                    /* align-items: center; */
+                    font-weight: 700;
+                    color: #fff;
+                }
+            }
+            &-divider{
+                margin-inline-end: -4rem;
+                margin-inline-start: -4rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;            
+                width: auto;
+                display:block;
+                border-bottom: 1px solid var(--thm-white);
+            }
+            &-title{
+                font-weight: 600;
+                margin-bottom: 2rem;
+                margin-top: 1rem;
+            }
+        }
+    }
+    // Main Styling
+    main{
+        width: 100%;
+        height: 90vh;
+        background-color: #fefefe;
+        overflow-y: auto;
+        .main__title{
+            text-transform: uppercase;
+            width: 100%;
+            padding-bottom: 1.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #f1f1f1;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: .4rem;
+            color: #000000;
+        }
+
+
+        // Start Recently Added books styling
+        .recent__section{
+            .card{
+                *{
+                    margin-bottom: .2rem;
+                }
+                display: flex;
+                align-items: center;
+                font-size: 1.25rem;
+                width: 100%;
+                cursor: pointer;
+                transition: all 0.25s ease-in-out;
+                p[class*="card-"]{
+                    font-size: 1.2rem;
+                }
+                &-img{
+                    margin-inline-end: 1rem;
+                    height: 16rem;
+                    img{
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+                &-status{
+                    color: var(--primary);
+                    line-height: 2.4;
+                }
+                &-title{
+                    font-weight: 600;
+                    font-size: 1.45rem;
+                    line-height: 1.2;
+                }
+                &-more-det{
+                    display: flex;
+                    margin-top: 0.9rem;
+                    &-rating-section{
+                        margin-right: 1rem;
+                        padding-right: 1rem;
+                        border-right: 1px solid var(--thm-white);                    
+                        .card-rating-score{
+                            width: 100%;
+                            display: flex;
+                            flex-direction: row-reverse;
+                            svg{
+                                display: inline-block;
+                                position: relative;
+                                fill: var(--gray);
+                                width: 1.4rem;
+                            }
+                        }
+                        
+                    }
+                    &-shares-section{
+                        display: flex;
+                        .card-shares, .card-likes{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: center;
+                            margin-right: 0.5rem;
+                            svg{
+                                width: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // :End
+    }
 }
