@@ -1,0 +1,284 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900&display=swap");
+@import './base.css';
+/* Basic styling */
+:root {
+  --primary: #64c12e;
+  --accent: #302e24;
+  --warn: #dfa612;
+  --gray: #888888;
+  --consumed-by-js: $primary;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-display: fallback;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  image-rendering: crisp-edges;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .show-sm {
+    display: flex !important;
+  }
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 9vh;
+  padding: 0 4rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0.5rem 0rem 3rem #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+}
+@media (max-width: 1024px) {
+  #header {
+    padding: 0 2rem;
+    height: 8rem;
+    background-color: white;
+  }
+}
+#header .nav__hamburger {
+  display: none;
+  width: 2.3rem;
+  height: 2px;
+  position: relative;
+  color: #212121;
+  background-color: var(--primary);
+}
+#header .nav__hamburger::before, #header .nav__hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 1.6rem;
+  padding: 0.5rem;
+}
+#header .nav__hamburger::before {
+  top: -0.8rem;
+  border-top: 2px solid var(--primary);
+}
+#header .nav__hamburger::after {
+  bottom: -0.8rem;
+  border-bottom: 2px solid var(--primary);
+}
+@media (max-width: 1024px) {
+  #header .nav__hamburger {
+    display: inline-flex;
+  }
+}
+#header .nav__logo {
+  display: flex;
+  align-items: center;
+}
+#header .nav__logo*:not(:last-child) {
+  margin: 1.5rem;
+  margin-left: 0;
+}
+#header .nav__logo h3 {
+  font-size: 1.825rem;
+  font-weight: 300;
+}
+#header .nav__logo span {
+  font-size: 1.4rem;
+  color: var(--gray);
+}
+#header .nav__logo-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-inline-end: 1.2rem;
+  background-color: #212121;
+}
+@media (max-width: 1024px) {
+  #header .nav__logo-icon {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+#header .nav__logo img, #header .nav__logo svg {
+  object-fit: contain;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+#header .nav__logo-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (max-width: 1024px) {
+  #header .nav__logo-info {
+    display: none;
+  }
+}
+#header .nav__search {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  #header .nav__search {
+    display: none;
+  }
+}
+#header .nav__search-container {
+  flex-basis: 40%;
+}
+#header .nav__search button[type=submit] {
+  width: 5rem;
+  height: 3.5rem;
+  border: 2px solid #f1f1f1;
+  background-color: #f9f9fb;
+  cursor: pointer;
+}
+#header .nav__search button[type=submit] svg {
+  width: 2rem;
+  height: 2rem;
+}
+#header .nav__search button[type=submit]:hover {
+  transition: all 0.25s ease-in-out;
+  background-color: #e4e4e4;
+}
+#header .nav__search-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #ffffff;
+  border: 1px solid #f1f1f1;
+  color: #888888;
+  font-size: 1.4rem;
+}
+#header .nav__search-autocomplete-suggestion {
+  padding: 1.2rem 2rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.25s ease-in-out;
+}
+#header .nav__search-autocomplete-suggestion.match {
+  color: #212121;
+}
+#header .nav__search-autocomplete-suggestion:hover {
+  background-color: #f1f1f1;
+}
+#header .nav__search-autocomplete-suggestions {
+  margin: 0.5rem 0;
+}
+#header .nav__search-input {
+  width: 100%;
+  border: 2px solid #f1f1f1;
+  border-right: none;
+  border-radius: 0;
+  color: #3f3f3f;
+  padding: 0.7rem 1.3rem;
+  outline: none;
+  font-size: calc(1.6rem - 0.2rem);
+}
+#header .nav__search-input:focus ~ .nav__search-autocomplete {
+  visibility: visible;
+  opacity: 1;
+}
+@media (max-width: 1024px) {
+  #header .nav__search .nav.search-active > * {
+    display: none;
+  }
+  #header .nav__search .nav.search-active .nav__search-container {
+    display: flex;
+    flex-basis: 100%;
+  }
+  #header .nav__search .nav.search-active .nav__search-container .close::after {
+    content: "←";
+    font-size: 2.8rem;
+    margin-right: 3rem;
+  }
+  #header .nav__search .nav.search-active .nav__search {
+    display: flex;
+    flex-basis: 100%;
+    position: static;
+  }
+}
+#header .nav__menu {
+  color: #212121;
+}
+#header .nav__menu-items {
+  display: flex;
+  justify-content: space-between;
+}
+#header .nav__menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+#header .nav__menu-item.avatar {
+  box-shadow: 1px 1px 2rem #f1f1f1;
+  border: 2px solid #f1f1f1;
+}
+#header .nav__menu-item.avatar img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#header .nav__menu-item span {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 1rem;
+  display: flex;
+  top: 0.5rem;
+  right: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: absolute;
+  color: #ffffff;
+  background-color: var(--primary);
+}
+#header .nav__menu-item:last-of-type {
+  margin-left: 1.5rem;
+}
+#header .nav__menu-item img, #header .nav__menu-item svg {
+  object-fit: contain;
+  object-position: top;
+  width: 2rem;
+  height: 2rem;
+}
+@media (max-width: 1024px) {
+  #header .nav__menu-item {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
