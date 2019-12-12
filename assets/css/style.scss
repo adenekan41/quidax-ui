@@ -72,7 +72,7 @@ html{
     }
 }
 .mb-4{
-    margin-bottom: 4rem;
+    // margin-bottom: 4rem;
 }
 .d-grid{ 
     display: grid;
@@ -131,8 +131,6 @@ html{
                     border-right: 1px solid var(--thm-white);                    
                     .card-rating-score{
                         width: 100%;
-                        display: flex;
-                        flex-direction: row;
                         svg{
                             display: inline-block;
                             position: relative;
@@ -144,11 +142,10 @@ html{
                 }
                 &-shares-section{
                     display: flex;
+                    text-align: center;
                     .card-shares, .card-likes{
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-around;
-                        align-items: center;
                         margin-right: 0.5rem;
                         svg{
                             width: 1.5rem;
