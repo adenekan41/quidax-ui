@@ -1,4 +1,4 @@
-# Quidax Book Club
+# Quidax Book Club Assesment
 
 ## Abstract
 Implement a dashboard view for the fictional Quidax Book Club web application, exactly as
