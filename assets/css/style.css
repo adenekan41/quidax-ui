@@ -60,10 +60,6 @@ html {
   z-index: 999999;
 }
 
-.mb-4 {
-  margin-bottom: 4rem;
-}
-
 .d-grid {
   display: grid;
   grid-gap: 1.8rem;
@@ -617,8 +613,6 @@ section main .recent__section .card-more-det-rating-section, section main .allbo
 }
 section main .recent__section .card-more-det-rating-section .card-rating-score, section main .allbooks__section .card-more-det-rating-section .card-rating-score {
   width: 100%;
-  display: flex;
-  flex-direction: row;
 }
 section main .recent__section .card-more-det-rating-section .card-rating-score svg, section main .allbooks__section .card-more-det-rating-section .card-rating-score svg {
   display: inline-block;
@@ -628,12 +622,11 @@ section main .recent__section .card-more-det-rating-section .card-rating-score s
 }
 section main .recent__section .card-more-det-shares-section, section main .allbooks__section .card-more-det-shares-section {
   display: flex;
+  text-align: center;
 }
 section main .recent__section .card-more-det-shares-section .card-shares, section main .recent__section .card-more-det-shares-section .card-likes, section main .allbooks__section .card-more-det-shares-section .card-shares, section main .allbooks__section .card-more-det-shares-section .card-likes {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   margin-right: 0.5rem;
 }
 section main .recent__section .card-more-det-shares-section .card-shares svg, section main .recent__section .card-more-det-shares-section .card-likes svg, section main .allbooks__section .card-more-det-shares-section .card-shares svg, section main .allbooks__section .card-more-det-shares-section .card-likes svg {
