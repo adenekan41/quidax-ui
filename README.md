@@ -19,16 +19,16 @@ It can be ran in one command if you already have SASS installed on your system. 
 ```
 assets
    > css 
-        > style.css (Where the Css Is been compiled from the pre-processor)
-        > style.css.map (Style Mappings when scss file is built)
+        > style.css (Where the css is been compiled from the pre-processor)
+        > style.css.map (Style mappings when scss file is built)
         > style.scss ( Main entry point for the scss file)
     > js
-        > index.js ( Main Entry Point for the JS file)
+        > index.js ( Main entry point for the JS file)
 
 
-> index.html ( Main App Entry Point)
+> index.html ( Main app entry point)
 
-> manifest.json ( Main Manifest Entry Point)
+> manifest.json ( Main manifest entry point)
 ```
 
 ## Issues faced
