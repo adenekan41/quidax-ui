@@ -1,7 +1,7 @@
-# Quidax Book Club Assesment
+# Book Club
 
 ## Abstract
-Implement a dashboard view for the fictional Quidax Book Club web application, exactly as
+Implement a dashboard view for the fictional Book Club web application, exactly as
 detailed in the UI mockups provided using HTML, CSS/SCSS, vanilla Javascript, and only the
 suggested libraries/plugins for certain UI elements.
 
@@ -39,4 +39,4 @@ assets
 
 ## Feedback
 
-I think its a really nice and interesting assesment, but then if there was a way in which we could be able to access an API with the book that way it would populate dynamically on the DOM either ways i enjoyed the process.
+I think its a really nice and interesting project, but then if there was a way in which we could be able to access an API with the book that way it would populate dynamically on the DOM. either ways i enjoyed the process.
